@@ -8,7 +8,7 @@ Specifications
 --------------
 
  * [Smalltime](#smalltime)
- * [Safe64 and Safe32](#safe64-and-safe32)
+ * [Safe Text Encoding](#safe-text-encoding)
  * [Concise Binary and Text Encoding](#concise-binary-and-text-encoding)
 
 ---------------------------------------------------------------------
@@ -38,10 +38,10 @@ Smalltime offers a simple and convenient way to encode date & time values into s
 ---------------------------------------------------------------------
 
 
-Safe64 and Safe32
------------------
+Safe Text Encoding
+------------------
 
-[https://github.com/kstenerud/safe64](https://github.com/kstenerud/safe64)
+[https://github.com/kstenerud/safe-encoding](https://github.com/kstenerud/safe-encoding)
 
 #### Status: Prerelease
 
