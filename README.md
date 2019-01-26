@@ -45,23 +45,31 @@ Safe Text Encoding
 
 #### Status: Prerelease
 
-[Safe64](https://github.com/kstenerud/safe64/blob/master/safe64-specification.md) and [safe32](https://github.com/kstenerud/safe64/blob/master/safe32-specification.md) define binary data encoding schemes that are safe to be passed through processing systems that expect human readable text.
+Binary data encoding schemes that are safe to be passed through processing systems that expect human readable text, without requiring escaping.
+
 
 #### Features
 
- * No escaping necessary
- * Safe for use in URLs
- * Safe for use as filenames
+ * Safe for use in JSON, SGML formats, source code strings, without escaping
+ * Safe for use in path, query, and fragment components of URIs
  * Safe for use in formatted documents
  * Safe for use in legacy text processing systems
+ * Support for length fields
  * Liberal whitespace rules
+ * No padding characters
+ * Safe for use in filenames on POSIX file systems
  * Sortable in generic text sorting algorithms (such as file listings)
- * Alternate form with prefixed length
 
-#### Safe32 Additional Features:
+#### Safe64 and below
 
- * Easily confusable characters & digits are interchangeable.
- * Uppercase and lowercase characters are interchangeable.
+ * Safe for use in all URI components without escaping
+ * Safe for use in filenames on all file systems
+
+#### Safe32 and below
+
+ * Useful for human input situations such as activation codes
+ * Easily confusable characters & digits are interchangeable
+ * Uppercase and lowercase characters are interchangeable
 
 ---------------------------------------------------------------------
 
