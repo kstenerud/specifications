@@ -43,12 +43,12 @@ Safe Text Encoding
 
 [https://github.com/kstenerud/safe-encoding](https://github.com/kstenerud/safe-encoding)
 
-#### Status: Prerelease
+#### Status: Released
 
 Binary data encoding schemes that are safe to be passed through processing systems that expect human readable text, without requiring escaping.
 
 
-#### Features
+#### Features: All
 
  * Safe for use in JSON, SGML formats, source code strings, without escaping
  * Safe for use in path, query, and fragment components of URIs
@@ -60,12 +60,15 @@ Binary data encoding schemes that are safe to be passed through processing syste
  * Safe for use in filenames on POSIX file systems
  * Sortable in generic text sorting algorithms (such as file listings)
 
-#### Safe64 and below
+#### Features: Safe80 and below
+
+ * Safe for use in filenames on Windows file systems
+
+#### Features: Safe64 and below
 
  * Safe for use in all URI components without escaping
- * Safe for use in filenames on all file systems
 
-#### Safe32 and below
+#### Features: Safe32 and below
 
  * Useful for human input situations such as activation codes
  * Easily confusable characters & digits are interchangeable
@@ -81,8 +84,8 @@ Concise Binary and Text Encoding
 
 #### Status: Prerelease
 
-
 General purpose, compact representations of semi-structured hierarchical data, in binary and text formats.
+
 
 #### Features
 
@@ -101,3 +104,24 @@ General purpose, compact representations of semi-structured hierarchical data, i
 #### Features: Concise Text Encoding (CTE)
 
   * Human readable format
+
+---------------------------------------------------------------------
+
+
+Streamux
+--------
+
+[https://github.com/kstenerud/streamux](https://github.com/kstenerud/streamux)
+
+#### Status: Prerelease
+
+A minimalist, multiplexing, asynchronous, bi-directional messaging and streaming protocol.
+
+
+#### Features
+
+  * Minimal overhead (2 or 4 bytes per message, depending on configuration)
+  * Client driven (server only responds upon completion, if needed)
+  * Floating roles (both peers can operate as client and server at the same time)
+  * Multiplexing (multiple data streams can be multiplexed across a single channel)
+  * Asynchronous (client is informed asynchronously upon completion or error)
