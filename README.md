@@ -10,6 +10,7 @@ Specifications
  * [Smalltime](#smalltime)
  * [Safe Text Encoding](#safe-text-encoding)
  * [Concise Binary and Text Encoding](#concise-binary-and-text-encoding)
+ * [Streamux](#streamux)
 
 ---------------------------------------------------------------------
 
