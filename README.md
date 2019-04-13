@@ -116,13 +116,13 @@ Streamux
 
 #### Status: Prerelease
 
-A minimalist, multiplexing, asynchronous, bi-directional messaging and streaming protocol.
+A minimalist, asynchronous, multiplexing, request-response protocol.
 
 
 #### Features
 
-  * Minimal overhead (2 or 4 bytes per message, depending on configuration)
-  * Client driven (server only responds upon completion, if needed)
-  * Floating roles (both peers can operate as client and server at the same time)
-  * Multiplexing (multiple data streams can be multiplexed across a single channel)
-  * Asynchronous (client is informed asynchronously upon completion or error)
+* Minimal Overhead (2 or 4 bytes per message chunk, depending on configuration)
+* Multiplexing (multiple data streams can be sent across a single channel)
+* Asynchronous (client is informed asynchronously upon completion or error)
+* Interruptible (requests may be canceled)
+* Floating roles (both peers can operate as client and server at the same time)
