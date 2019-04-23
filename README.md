@@ -121,7 +121,7 @@ A minimalist, asynchronous, multiplexing, request-response protocol.
 
 #### Features
 
-* Minimal Overhead (2 or 4 bytes per message chunk, depending on configuration)
+* Minimal Overhead (1 to 4 bytes per message chunk, depending on configuration)
 * Multiplexing (multiple data streams can be sent across a single channel)
 * Asynchronous (client is informed asynchronously upon completion or error)
 * Interruptible (requests may be canceled)
