@@ -33,7 +33,7 @@ Smalltime offers a simple and convenient way to encode date & time values into s
  * Supports hundreds of thousands of years.
  * Supports time units to the microsecond.
  * Supports leap years and leap seconds.
- * Values are always in timezone zero.
+ * Values are in timezone zero by default.
  * Encoded values are comparable.
 
 ---------------------------------------------------------------------
