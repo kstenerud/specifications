@@ -126,3 +126,4 @@ A minimalist, asynchronous, multiplexing, request-response protocol.
 * Asynchronous (client is informed asynchronously upon completion or error)
 * Interruptible (requests may be canceled)
 * Floating roles (both peers can operate as client and server at the same time)
+* Quick init mode, requiring no round-trips
