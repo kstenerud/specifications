@@ -7,10 +7,10 @@ A pointer to the specifications I've published.
 Specifications
 --------------
 
- * [Smalltime](#smalltime)
- * [Safe Text Encoding](#safe-text-encoding)
- * [Concise Binary and Text Encoding](#concise-binary-and-text-encoding)
- * [Streamux](#streamux)
+ * [Smalltime](#smalltime): Binary date & time format in 64 bits.
+ * [Safe Text Encoding](#safe-text-encoding): Binary to text encoding for modern systems.
+ * [Concise Binary and Text Encoding](#concise-binary-and-text-encoding): General purpose, compact representations of semi-structured hierarchical data, in binary and text formats.
+ * [Streamux](#streamux): A minimalist, asynchronous, multiplexing, request-response protocol.
 
 ---------------------------------------------------------------------
 
