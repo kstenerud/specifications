@@ -48,6 +48,13 @@ Safe Text Encoding
 
 Binary data encoding schemes that are safe to be passed through processing systems that expect human readable text, without requiring escaping.
 
+Alternative To:
+
+* Base16
+* Base32
+* Base64
+* Ascii85
+
 
 #### Features: All
 
@@ -86,6 +93,15 @@ Concise Binary and Text Encoding
 #### Status: Prerelease
 
 General purpose, compact representations of semi-structured hierarchical data, in binary and text formats.
+
+Alternative To:
+
+* JSON
+* XML
+* BSON
+* CBOR
+* MessagePack
+* Protobuf
 
 
 #### Features
