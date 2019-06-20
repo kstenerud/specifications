@@ -1,13 +1,11 @@
-Specifications
-==============
+The Specifications Project
+==========================
 
-A pointer to the specifications I've published.
+Specifications for better computing.
 
-
-Specifications
---------------
 
  * [Smalltime](#smalltime): Binary date & time format in 64 bits.
+ * [Varpad](#varpad): Unlimited padding that can be unambiguously detected and removed.
  * [Safe Text Encoding](#safe-text-encoding): Binary to text encoding for modern systems.
  * [Concise Binary and Text Encoding](#concise-binary-and-text-encoding): General purpose, compact representations of semi-structured hierarchical data, in binary and text formats.
  * [Streamux](#streamux): A minimalist, asynchronous, multiplexing, request-response protocol.
@@ -39,6 +37,30 @@ Smalltime offers a simple and convenient way to encode date & time values into s
 ---------------------------------------------------------------------
 
 
+Varpad
+------
+
+[https://github.com/kstenerud/varpad](https://github.com/kstenerud/varpad)
+
+#### Status: Released
+
+Varpad is a padding encoding scheme that allows unambiguous detection of the padding length without requiring an external field. It is similar to the scheme described in [PKCS#7](http://tools.ietf.org/html/rfc5652#section-6.3), but doesn't suffer from its limitations (PKCS#7 has a length limit of 255).
+
+
+#### Alternative To:
+
+* [PKCS#7](http://tools.ietf.org/html/rfc5652#section-6.3)
+
+
+#### Features
+
+ * Requires no separate length field (the length is embedded in the padding itself).
+ * Padding length can be unambiguously detected by examining the first or last byte of the paylod (depending on the ordering of message and padding).
+ * Supports padding of any length.
+
+---------------------------------------------------------------------
+
+
 Safe Text Encoding
 ------------------
 
@@ -48,7 +70,7 @@ Safe Text Encoding
 
 Binary data encoding schemes that are safe to be passed through processing systems that expect human readable text, without requiring escaping.
 
-Alternative To:
+#### Alternative To:
 
 * Base16
 * Base32
@@ -92,9 +114,12 @@ Concise Binary and Text Encoding
 
 #### Status: Prerelease
 
-General purpose, compact representations of semi-structured hierarchical data, in binary and text formats.
+CBE and CTE are general purpose, compact representations of semi-structured hierarchical data, in binary and text formats. They support all common data types, including dates, URIs, and decimal floating point values.
 
-Alternative To:
+CBE is designed to encode more commonly used types and values in a shorter space.
+
+
+#### Alternative To:
 
 * JSON
 * XML
