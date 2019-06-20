@@ -5,7 +5,7 @@ Specifications for better computing.
 
 
  * [Smalltime](#smalltime): Binary date & time format in 64 bits.
- * [Varpad](#varpad): Unlimited padding that can be unambiguously detected and removed.
+ * [Varpad](#varpad): Unlimited padding with an embedded length field.
  * [Safe Text Encoding](#safe-text-encoding): Binary to text encoding for modern systems.
  * [Concise Binary and Text Encoding](#concise-binary-and-text-encoding): General purpose, compact representations of semi-structured hierarchical data, in binary and text formats.
  * [Streamux](#streamux): A minimalist, asynchronous, multiplexing, request-response protocol.
@@ -15,6 +15,8 @@ Specifications for better computing.
 
 Smalltime
 ---------
+
+Binary date & time format in 64 bits.
 
 [Smalltime Specification](https://github.com/kstenerud/smalltime/blob/master/smalltime-specification.md)
 
@@ -40,6 +42,8 @@ Smalltime offers a simple and convenient way to encode date & time values into s
 Varpad
 ------
 
+Unlimited padding with an embedded length field.
+
 [Varpad Specification](https://github.com/kstenerud/varpad/blob/master/varpad-specification.md)
 
 #### Status: Released
@@ -56,13 +60,15 @@ Varpad is a padding encoding scheme that allows unambiguous detection of the pad
 
  * Doesn't require a separate length field (the length is embedded in the padding itself).
  * Padding length can be unambiguously detected by examining the first or last byte of the payload (depending on the ordering of message and padding).
- * Supports padding of any length.
+ * No upper limit on padding length.
 
 ---------------------------------------------------------------------
 
 
 Safe Text Encoding
 ------------------
+
+Binary to text encoding for modern systems.
 
 [Safe16 Specification](https://github.com/kstenerud/safe-encoding/blob/master/safe16-specification.md)
 
@@ -118,6 +124,8 @@ Binary data encoding schemes that are safe to be passed through processing syste
 Concise Binary and Text Encoding
 --------------------------------
 
+General purpose, compact representations of semi-structured hierarchical data, in binary and text formats.
+
 [CBE Specification](https://github.com/kstenerud/concise-encoding/blob/master/cbe-specification.md)
 
 [CTE Specification](https://github.com/kstenerud/concise-encoding/blob/master/cte-specification.md)
@@ -162,6 +170,8 @@ CBE is designed to encode more commonly used types and values in a shorter space
 
 Streamux
 --------
+
+A minimalist, asynchronous, multiplexing, request-response protocol.
 
 [Streamux Specification](https://github.com/kstenerud/streamux/blob/master/streamux-specification.md)
 
