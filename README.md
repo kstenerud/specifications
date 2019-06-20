@@ -16,7 +16,7 @@ Specifications for better computing.
 Smalltime
 ---------
 
-[https://github.com/kstenerud/smalltime](https://github.com/kstenerud/smalltime)
+[Smalltime Specification](https://github.com/kstenerud/smalltime/blob/master/smalltime-specification.md)
 
 #### Status: Released
 
@@ -40,11 +40,11 @@ Smalltime offers a simple and convenient way to encode date & time values into s
 Varpad
 ------
 
-[https://github.com/kstenerud/varpad](https://github.com/kstenerud/varpad)
+[Varpad Specification](https://github.com/kstenerud/varpad/blob/master/varpad-specification.md)
 
 #### Status: Released
 
-Varpad is a padding encoding scheme that allows unambiguous detection of the padding length without requiring an external field. It is similar to the scheme described in [PKCS#7](http://tools.ietf.org/html/rfc5652#section-6.3), but doesn't suffer from its limitations (PKCS#7 has a length limit of 255).
+Varpad is a padding encoding scheme that allows unambiguous detection of the padding length without requiring an external field. It is similar to the scheme described in [PKCS#7](http://tools.ietf.org/html/rfc5652#section-6.3), but doesn't suffer from its limitations (PKCS#7 padding has a length limit of 255).
 
 
 #### Alternative To:
@@ -54,8 +54,8 @@ Varpad is a padding encoding scheme that allows unambiguous detection of the pad
 
 #### Features
 
- * Requires no separate length field (the length is embedded in the padding itself).
- * Padding length can be unambiguously detected by examining the first or last byte of the paylod (depending on the ordering of message and padding).
+ * Doesn't require a separate length field (the length is embedded in the padding itself).
+ * Padding length can be unambiguously detected by examining the first or last byte of the payload (depending on the ordering of message and padding).
  * Supports padding of any length.
 
 ---------------------------------------------------------------------
@@ -64,7 +64,15 @@ Varpad is a padding encoding scheme that allows unambiguous detection of the pad
 Safe Text Encoding
 ------------------
 
-[https://github.com/kstenerud/safe-encoding](https://github.com/kstenerud/safe-encoding)
+[Safe16 Specification](https://github.com/kstenerud/safe-encoding/blob/master/safe16-specification.md)
+
+[Safe32 Specification](https://github.com/kstenerud/safe-encoding/blob/master/safe32-specification.md)
+
+[Safe64 Specification](https://github.com/kstenerud/safe-encoding/blob/master/safe64-specification.md)
+
+[Safe80 Specification](https://github.com/kstenerud/safe-encoding/blob/master/safe80-specification.md)
+
+[Safe85 Specification](https://github.com/kstenerud/safe-encoding/blob/master/safe85-specification.md)
 
 #### Status: Released
 
@@ -110,7 +118,9 @@ Binary data encoding schemes that are safe to be passed through processing syste
 Concise Binary and Text Encoding
 --------------------------------
 
-[https://github.com/kstenerud/concise-binary-encoding](https://github.com/kstenerud/concise-binary-encoding)
+[CBE Specification](https://github.com/kstenerud/concise-encoding/blob/master/cbe-specification.md)
+
+[CTE Specification](https://github.com/kstenerud/concise-encoding/blob/master/cte-specification.md)
 
 #### Status: Prerelease
 
@@ -153,7 +163,7 @@ CBE is designed to encode more commonly used types and values in a shorter space
 Streamux
 --------
 
-[https://github.com/kstenerud/streamux](https://github.com/kstenerud/streamux)
+[Streamux Specification](https://github.com/kstenerud/streamux/blob/master/streamux-specification.md)
 
 #### Status: Prerelease
 
