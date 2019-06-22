@@ -6,6 +6,7 @@ Specifications for better computing.
 
  * [Smalltime](#smalltime): Binary date & time format in 64 bits.
  * [Varpad](#varpad): Unlimited padding with an embedded length field.
+ * [Variable Length Quantity](#variable-length-quantity): An encoding scheme to compress unsigned integers.
  * [Safe Text Encoding](#safe-text-encoding): Binary to text encoding for modern systems.
  * [Concise Binary and Text Encoding](#concise-binary-and-text-encoding): General purpose, compact representations of semi-structured hierarchical data, in binary and text formats.
  * [Streamux](#streamux): A minimalist, asynchronous, multiplexing, request-response protocol.
@@ -61,6 +62,32 @@ Varpad is a padding encoding scheme that allows unambiguous detection of the pad
  * Doesn't require a separate length field (the length is embedded in the padding itself).
  * Padding length can be unambiguously detected by examining the first or last byte of the payload (depending on the ordering of message and padding).
  * No upper limit on padding length.
+
+
+---------------------------------------------------------------------
+
+
+Variable Length Quantity
+------------------------
+
+An encoding scheme to compress unsigned integers.
+
+[VLQ Specification](https://github.com/kstenerud/vlq/blob/master/vlq-specification.md)
+
+#### Status: Released
+
+Variable Length Quantity (VLQ) encoding is an unsigned integer compression scheme designed for the MIDI file format.
+
+
+#### Alternative To:
+
+* [Protobuf Varint](https://developers.google.com/protocol-buffers/docs/encoding#varints)
+
+
+#### Features
+
+ * Forward or reverse encoding
+ * Supports progressive decoding
 
 ---------------------------------------------------------------------
 
