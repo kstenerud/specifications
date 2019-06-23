@@ -3,12 +3,19 @@ The Specifications Project
 
 Specifications for better computing.
 
+### Released Specifications:
 
  * [Smalltime](#smalltime): Binary date & time format in 64 bits.
  * [Varpad](#varpad): Unlimited padding with an embedded length field.
  * [Variable Length Quantity](#variable-length-quantity): An encoding scheme to compress unsigned integers.
  * [Safe Text Encoding](#safe-text-encoding): Binary to text encoding for modern systems.
+
+### Late Development (unlikely to change much):
+
  * [Concise Binary and Text Encoding](#concise-binary-and-text-encoding): General purpose, compact representations of semi-structured hierarchical data, in binary and text formats.
+
+### Early Development (likely to change):
+
  * [Streamux](#streamux): A minimalist, asynchronous, multiplexing, request-response protocol.
 
 ---------------------------------------------------------------------
@@ -19,7 +26,15 @@ Smalltime
 
 Binary date & time format in 64 bits.
 
-[Smalltime Specification](https://github.com/kstenerud/smalltime/blob/master/smalltime-specification.md)
+#### Specification
+
+* [Smalltime Specification](https://github.com/kstenerud/smalltime/blob/master/smalltime-specification.md)
+* [Nanotime Specification](https://github.com/kstenerud/smalltime/blob/master/nanotime-specification.md)
+
+#### Implementation
+
+* [C Implementation](https://github.com/kstenerud/smalltime/blob/master/reference-implementation)
+* [Go Implementation](https://github.com/kstenerud/go-smalltime)
 
 #### Status: Released
 
@@ -45,7 +60,13 @@ Varpad
 
 Unlimited padding with an embedded length field.
 
-[Varpad Specification](https://github.com/kstenerud/varpad/blob/master/varpad-specification.md)
+#### Specification
+
+* [Varpad Specification](https://github.com/kstenerud/varpad/blob/master/varpad-specification.md)
+
+#### Implementation
+
+* [Go Implementation](https://github.com/kstenerud/go-varpad)
 
 #### Status: Released
 
@@ -72,7 +93,13 @@ Variable Length Quantity
 
 An encoding scheme to compress unsigned integers.
 
-[VLQ Specification](https://github.com/kstenerud/vlq/blob/master/vlq-specification.md)
+#### Specification
+
+* [VLQ Specification](https://github.com/kstenerud/vlq/blob/master/vlq-specification.md)
+
+#### Implementation
+
+* [Go Implementation](https://github.com/kstenerud/go-vlq)
 
 #### Status: Released
 
@@ -97,15 +124,17 @@ Safe Text Encoding
 
 Binary to text encoding for modern systems.
 
-[Safe16 Specification](https://github.com/kstenerud/safe-encoding/blob/master/safe16-specification.md)
+#### Specification
 
-[Safe32 Specification](https://github.com/kstenerud/safe-encoding/blob/master/safe32-specification.md)
+* [Safe16 Specification](https://github.com/kstenerud/safe-encoding/blob/master/safe16-specification.md)
+* [Safe32 Specification](https://github.com/kstenerud/safe-encoding/blob/master/safe32-specification.md)
+* [Safe64 Specification](https://github.com/kstenerud/safe-encoding/blob/master/safe64-specification.md)
+* [Safe80 Specification](https://github.com/kstenerud/safe-encoding/blob/master/safe80-specification.md)
+* [Safe85 Specification](https://github.com/kstenerud/safe-encoding/blob/master/safe85-specification.md)
 
-[Safe64 Specification](https://github.com/kstenerud/safe-encoding/blob/master/safe64-specification.md)
+#### Implementation
 
-[Safe80 Specification](https://github.com/kstenerud/safe-encoding/blob/master/safe80-specification.md)
-
-[Safe85 Specification](https://github.com/kstenerud/safe-encoding/blob/master/safe85-specification.md)
+* [C Implementation](https://github.com/kstenerud/safe-encoding/blob/master/reference-implementation)
 
 #### Status: Released
 
@@ -153,9 +182,15 @@ Concise Binary and Text Encoding
 
 General purpose, compact representations of semi-structured hierarchical data, in binary and text formats.
 
-[CBE Specification](https://github.com/kstenerud/concise-encoding/blob/master/cbe-specification.md)
+#### Specification
 
-[CTE Specification](https://github.com/kstenerud/concise-encoding/blob/master/cte-specification.md)
+* [CBE Specification](https://github.com/kstenerud/concise-encoding/blob/master/cbe-specification.md)
+* [CTE Specification](https://github.com/kstenerud/concise-encoding/blob/master/cte-specification.md)
+
+#### Implementation
+
+* [C Implementation](https://github.com/kstenerud/concise-encoding/tree/master/reference-implementation)
+* [Go Implementation](https://github.com/kstenerud/go-cbe)
 
 #### Status: Prerelease
 
@@ -200,7 +235,13 @@ Streamux
 
 A minimalist, asynchronous, multiplexing, request-response protocol.
 
-[Streamux Specification](https://github.com/kstenerud/streamux/blob/master/streamux-specification.md)
+#### Specification
+
+* [Streamux Specification](https://github.com/kstenerud/streamux/blob/master/streamux-specification.md)
+
+#### Implementation
+
+* [Go Implementation](https://github.com/kstenerud/go-streamux)
 
 #### Status: Prerelease
 
