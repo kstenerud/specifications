@@ -12,6 +12,7 @@ Specifications for better computing.
 
 ### Late Development (unlikely to change much):
 
+ * [Compact Date Format](#compact-date-format): An encoding scheme to store a complete date, down to the nanosecond, in as few bytes as possible.
  * [Concise Binary and Text Encoding](#concise-binary-and-text-encoding): General purpose, compact representations of semi-structured hierarchical data, in binary and text formats.
 
 ### Early Development (likely to change):
@@ -40,6 +41,10 @@ Binary date & time format in 64 bits.
 
 Smalltime offers a simple and convenient way to encode date & time values into signed 64-bit integers that are comparable.
 
+#### Alternative To:
+
+* [Compact Date Format](#compact-date-format)
+
 #### Features
 
  * Encodes a complete date & time into a 64-bit signed integer.
@@ -51,6 +56,38 @@ Smalltime offers a simple and convenient way to encode date & time values into s
  * Supports leap years and leap seconds.
  * Values are in timezone zero by default.
  * Encoded values are comparable.
+
+---------------------------------------------------------------------
+
+
+Compact Date Format
+-------------------
+
+An encoding scheme to store a complete date, down to the nanosecond, in as few bytes as possible.
+
+#### Specification
+
+* [Compact Date Specification](https://github.com/kstenerud/compact-date/blob/master/compact-date-specification.md)
+
+#### Implementation
+
+* TODO
+
+#### Status: Prerelease
+
+#### Alternative To:
+
+* [Smalltime](#smalltime)
+
+#### Features
+
+ * Encodes a complete date & time into as few as 32 bits.
+ * Maintenance-free (no leap second tables to update).
+ * Easily converts to human readable fields.
+ * Supports all years in both directions, in perpetuity.
+ * Supports time units to the nanosecond.
+ * Supports leap years and leap seconds.
+ * Dates are in UTC by default.
 
 ---------------------------------------------------------------------
 
