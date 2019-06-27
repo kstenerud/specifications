@@ -12,6 +12,7 @@ Specifications for better computing.
 
 ### Late Development (unlikely to change much):
 
+ * [Compact Float Format](#compact-float-format): An encoding scheme to store a floating point value in as few bytes as possible.
  * [Compact Date Format](#compact-date-format): An encoding scheme to store a complete date, down to the nanosecond, in as few bytes as possible.
  * [Concise Binary and Text Encoding](#concise-binary-and-text-encoding): General purpose, compact representations of semi-structured hierarchical data, in binary and text formats.
 
@@ -60,6 +61,31 @@ Smalltime offers a simple and convenient way to encode date & time values into s
 ---------------------------------------------------------------------
 
 
+Compact Float Format
+--------------------
+
+An encoding scheme to store a floating point value in as few bytes as possible for data transmission. This format supports all values that can be stored in 128 bit ieee754 floating point values (decimal and binary).
+
+CFF can store all of the kinds of values that ieee754 can without data loss:
+* Normalized values
+* Subnormal values
+* Positive and negative 0
+* Positive and negative infinity
+* NaNs (not a number)
+
+#### Specification
+
+* [Compact Float Specification](https://github.com/kstenerud/compact-float/blob/master/compact-float-specification.md)
+
+#### Implementation
+
+* TODO
+
+#### Status: Prerelease
+
+---------------------------------------------------------------------
+
+
 Compact Date Format
 -------------------
 
@@ -71,7 +97,7 @@ An encoding scheme to store a complete date, down to the nanosecond, in as few b
 
 #### Implementation
 
-* TODO
+* [C Implementation](https://github.com/kstenerud/compact-date/blob/master/reference-implementation)
 
 #### Status: Prerelease
 
