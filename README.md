@@ -7,6 +7,7 @@ Specifications for better computing.
 
  * [Smalltime](#smalltime): Binary date & time format in 64 bits.
  * [Varpad](#varpad): Unlimited padding with an embedded length field.
+ * [Variable Bit Padding](#variable-bit-padding): Arbitrary length variable bit-level padding.
  * [Variable Length Quantity](#variable-length-quantity): An encoding scheme to compress unsigned integers.
  * [Safe Text Encoding](#safe-text-encoding): Binary to text encoding for modern systems.
 
@@ -146,6 +147,31 @@ Varpad is a padding encoding scheme that allows unambiguous detection of the pad
  * Doesn't require a separate length field (the length is embedded in the padding itself).
  * Padding length can be unambiguously detected by examining the first or last byte of the payload (depending on the ordering of message and padding).
  * No upper limit on padding length.
+
+
+---------------------------------------------------------------------
+
+
+Variable Bit Padding
+--------------------
+
+A scheme for encoding an arbitrary number of padding bits in a field or bit stream.
+
+#### Specification
+
+* [Variable Bit Padding Specification](https://github.com/kstenerud/variable-bit-padding/blob/master/variable-bit-padding-specification.md)
+
+#### Implementation
+
+* TODO
+
+#### Status: Released
+
+
+#### Features
+
+* Padding can be decoded from the left or right side equally.
+* Padding can be 0-based (filled with `0` bits) or 1-based (filled with `1` bits).
 
 
 ---------------------------------------------------------------------
