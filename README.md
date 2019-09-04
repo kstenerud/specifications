@@ -13,8 +13,8 @@ Specifications for better computing.
 
 ### Late Development (unlikely to change much):
 
- * [Compact Float Format](#compact-float-format): An encoding scheme to store a floating point value in as few bytes as possible.
- * [Compact Date Format](#compact-date-format): An encoding scheme to store a complete date, down to the nanosecond, in as few bytes as possible.
+ * [Compact Float Format](#compact-float-format): An encoding scheme to store floating point values in as few bytes as possible.
+ * [Compact Time Format](#compact-time-format): An encoding scheme to store dates, times, and timestamps, down to the nanosecond, in as few bytes as possible.
  * [Concise Binary and Text Encoding](#concise-binary-and-text-encoding): General purpose, compact representations of semi-structured hierarchical data, in binary and text formats.
 
 ### Early Development (likely to change):
@@ -45,7 +45,7 @@ Smalltime offers a simple and convenient way to encode date & time values into s
 
 #### Alternative To:
 
-* [Compact Date Format](#compact-date-format)
+* [Compact Time Format](#compact-time-format)
 
 #### Features
 
@@ -65,14 +65,12 @@ Smalltime offers a simple and convenient way to encode date & time values into s
 Compact Float Format
 --------------------
 
-An encoding scheme to store a floating point value in as few bytes as possible for data transmission. This format supports all values that can be stored in 128 bit ieee754 floating point values (decimal and binary).
+Compact float format is an encoding scheme to store a decimal floating point value in as few bytes as possible for data transmission.
 
-CFF can store all of the kinds of values that ieee754 can without data loss:
-* Normalized values
-* Subnormal values
-* Positive and negative 0
-* Positive and negative infinity
-* NaNs (not a number)
+Compact float can store all of the kinds of values that the ieee754 decimal types can, without data loss:
+* ±0
+* ±infinity
+* Signaling and quiet NaNs, including payload
 
 #### Specification
 
@@ -90,15 +88,15 @@ CFF can store all of the kinds of values that ieee754 can without data loss:
 Compact Date Format
 -------------------
 
-An encoding scheme to store a complete date, down to the nanosecond, in as few bytes as possible.
+Compact float format is an encoding scheme to store a decimal floating point value in as few bytes as possible for data transmission.
 
 #### Specification
 
-* [Compact Date Specification](https://github.com/kstenerud/compact-date/blob/master/compact-date-specification.md)
+* [Compact Time Specification](https://github.com/kstenerud/compact-time/blob/master/compact-time-specification.md)
 
 #### Implementation
 
-* [C Implementation](https://github.com/kstenerud/compact-date/blob/master/reference-implementation)
+* [C Implementation](https://github.com/kstenerud/compact-time/blob/master/reference-implementation)
 
 #### Status: Prerelease
 
@@ -108,13 +106,15 @@ An encoding scheme to store a complete date, down to the nanosecond, in as few b
 
 #### Features
 
- * Encodes a complete date & time into as few as 32 bits.
- * Maintenance-free (no leap second tables to update).
- * Easily converts to human readable fields.
- * Supports all years in both directions, in perpetuity.
- * Supports time units to the nanosecond.
+ * Encodes a date into as few as 3 bytes.
+ * Encodes a time into as few as 4 bytes.
+ * Encodes a timestamp into as few as 5 bytes.
+ * Supports unlimited positive and negative year values.
+ * Supports time units down to the nanosecond.
  * Supports leap years and leap seconds.
- * Dates are in UTC by default.
+ * Maintenance-free (no leap second tables to update).
+ * Efficient conversion to/from human readable fields (no multiplication or division).
+ * Time zones are location-based.
 
 ---------------------------------------------------------------------
 
@@ -271,14 +271,14 @@ Concise Binary and Text Encoding
 
 General purpose, compact representations of semi-structured hierarchical data, in binary and text formats.
 
-#### Specification
+#### Specifications
 
-* [CBE Specification](https://github.com/kstenerud/concise-encoding/blob/master/cbe-specification.md)
-* [CTE Specification](https://github.com/kstenerud/concise-encoding/blob/master/cte-specification.md)
+* [CBE Specification](https://github.com/kstenerud/concise-binary-encoding/blob/master/cbe-specification.md)
+* [CTE Specification](https://github.com/kstenerud/concise-text-encoding/blob/master/cte-specification.md)
 
-#### Implementation
+#### Implementations
 
-* [C Implementation](https://github.com/kstenerud/concise-encoding/tree/master/reference-implementation)
+* [C Implementation](https://github.com/kstenerud/concise-binary-encoding/tree/master/reference-implementation)
 * [Go Implementation](https://github.com/kstenerud/go-cbe)
 
 #### Status: Prerelease
@@ -304,7 +304,7 @@ CBE is designed to encode more commonly used types and values in a shorter space
   * Supports the most common data types
   * Supports hierarchical data structuring
   * Minimal complexity
-  * Type compatibility between [CBE](https://github.com/kstenerud/concise-binary-encoding/blob/master/cbe-specification.md) and [CTE](https://github.com/kstenerud/concise-binary-encoding/blob/master/cte-specification.md)
+  * Type compatibility between CBE and CTE
 
 #### Features: Concise Binary Encoding (CBE)
 
