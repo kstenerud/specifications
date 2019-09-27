@@ -5,12 +5,12 @@ Specifications for better computing.
 
 ### Released Specifications:
 
- * [Compact Float Format](#compact-float-format): An encoding scheme to store floating point values in as few bytes as possible.
- * [Compact Time Format](#compact-time-format): An encoding scheme to store dates, times, and timestamps, down to the nanosecond, in as few bytes as possible.
+ * [Compact Float Format](#compact-float-format): Compresses floating point values.
+ * [Compact Time Format](#compact-time-format): Compresses dates, times, and timestamps (to the nanosecond).
  * [Safe Text Encoding](#safe-text-encoding): Binary to text encoding for modern systems.
  * [Smalltime](#smalltime): Binary date & time format in 64 bits.
  * [Variable Bit Padding](#variable-bit-padding): Arbitrary length variable bit-level padding.
- * [Variable Length Quantity](#variable-length-quantity): An encoding scheme to compress unsigned integers.
+ * [Variable Length Quantity](#variable-length-quantity): Compresses unsigned integers.
  * [Varpad](#varpad): Unlimited padding with an embedded length field.
 
 ### Late Development (unlikely to change much):
@@ -29,11 +29,11 @@ Compact Float Format
 
 Compact float format is an encoding scheme to store a decimal floating point value in as few bytes as possible for data transmission.
 
-Compact float can store all of the kinds of values that the ieee754 decimal types can, without data loss:
+Compact float can store all of the kinds of values that the IEEE754 decimal types can, without data loss:
 
 * ±0
 * ±infinity
-* Signaling and quiet NaNs, including payload
+* Signaling and quiet NaNs
 
 #### Specification
 
