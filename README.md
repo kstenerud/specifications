@@ -304,6 +304,7 @@ Variable Length Quantity (VLQ) encoding is an unsigned integer compression schem
 
 #### Implementation
 
+* [C Implementation](https://github.com/kstenerud/vlq/tree/master/reference-implementation)
 * [Go Implementation](https://github.com/kstenerud/go-vlq)
 
 #### Status: Released
