@@ -5,57 +5,21 @@ Specifications for better computing.
 
 ### Released Specifications:
 
+ * [Compact Float Format](#compact-float-format): An encoding scheme to store floating point values in as few bytes as possible.
+ * [Compact Time Format](#compact-time-format): An encoding scheme to store dates, times, and timestamps, down to the nanosecond, in as few bytes as possible.
+ * [Safe Text Encoding](#safe-text-encoding): Binary to text encoding for modern systems.
  * [Smalltime](#smalltime): Binary date & time format in 64 bits.
- * [Varpad](#varpad): Unlimited padding with an embedded length field.
  * [Variable Bit Padding](#variable-bit-padding): Arbitrary length variable bit-level padding.
  * [Variable Length Quantity](#variable-length-quantity): An encoding scheme to compress unsigned integers.
- * [Safe Text Encoding](#safe-text-encoding): Binary to text encoding for modern systems.
+ * [Varpad](#varpad): Unlimited padding with an embedded length field.
 
 ### Late Development (unlikely to change much):
 
- * [Compact Float Format](#compact-float-format): An encoding scheme to store floating point values in as few bytes as possible.
- * [Compact Time Format](#compact-time-format): An encoding scheme to store dates, times, and timestamps, down to the nanosecond, in as few bytes as possible.
  * [Concise Binary and Text Encoding](#concise-binary-and-text-encoding): General purpose, compact representations of semi-structured hierarchical data, in binary and text formats.
 
 ### Early Development (likely to change):
 
  * [Streamux](#streamux): A minimalist, asynchronous, multiplexing, request-response protocol.
-
----------------------------------------------------------------------
-
-
-Smalltime
----------
-
-Smalltime offers a simple and convenient way to encode date & time values into signed 64-bit integers that are comparable.
-
-#### Features
-
- * Encodes a complete date & time into a 64-bit signed integer.
- * Fields (including year) are compatible with ISO-8601.
- * Maintenance-free (no leap second tables to update).
- * Easily converts to human readable fields.
- * Supports hundreds of thousands of years.
- * Supports time units to the microsecond.
- * Supports leap years and leap seconds.
- * Values are in timezone zero by default.
- * Encoded values are comparable.
-
-#### Specification
-
-* [Smalltime Specification](https://github.com/kstenerud/smalltime/blob/master/smalltime-specification.md)
-* [Nanotime Specification](https://github.com/kstenerud/smalltime/blob/master/nanotime-specification.md)
-
-#### Implementation
-
-* [C Implementation](https://github.com/kstenerud/smalltime/blob/master/reference-implementation)
-* [Go Implementation](https://github.com/kstenerud/go-smalltime)
-
-#### Status: Released
-
-#### Alternative To:
-
-* [Compact Time Format](#compact-time-format)
 
 ---------------------------------------------------------------------
 
@@ -122,80 +86,51 @@ An encoding scheme to store dates, times, and timestamps, down to the nanosecond
 ---------------------------------------------------------------------
 
 
-Varpad
-------
+Concise Binary and Text Encoding
+--------------------------------
 
-Varpad is a padding encoding scheme that allows unambiguous detection of the padding length without requiring an external field. It is similar to the scheme described in [PKCS#7](http://tools.ietf.org/html/rfc5652#section-6.3), but doesn't suffer from its limitations (PKCS#7 padding has a length limit of 255).
+CBE and CTE are general purpose, compact representations of semi-structured hierarchical data, in binary and text formats. They support all common data types, including dates, URIs, and decimal floating point values.
+
+CBE is designed to encode more commonly used types and values in a shorter space.
 
 #### Features
 
- * Doesn't require a separate length field (the length is embedded in the padding itself).
- * Padding length can be unambiguously detected by examining the first or last byte.
- * No upper limit on padding length.
+  * General purpose encoding for a large number of applications
+  * Supports the most common data types
+  * Supports hierarchical data structuring
+  * Minimal complexity
+  * Type compatibility between CBE and CTE
 
-#### Specification
+#### Features: Concise Binary Encoding (CBE)
 
-* [Varpad Specification](https://github.com/kstenerud/varpad/blob/master/varpad-specification.md)
+  * Binary format to minimize parsing costs
+  * Little endian byte ordering to allow the most common systems to read directly off the wire
+  * Balanced space and computation efficiency
 
-#### Implementation
+#### Features: Concise Text Encoding (CTE)
 
-* [Go Implementation](https://github.com/kstenerud/go-varpad)
+  * Human readable format
 
-#### Status: Released
+#### Specifications
+
+* [CBE Specification](https://github.com/kstenerud/concise-binary-encoding/blob/master/cbe-specification.md)
+* [CTE Specification](https://github.com/kstenerud/concise-text-encoding/blob/master/cte-specification.md)
+
+#### Implementations
+
+* [C Implementation](https://github.com/kstenerud/concise-binary-encoding/tree/master/reference-implementation)
+* [Go Implementation](https://github.com/kstenerud/go-cbe)
+
+#### Status: Prerelease
 
 #### Alternative To:
 
-* [PKCS#7](http://tools.ietf.org/html/rfc5652#section-6.3)
-
----------------------------------------------------------------------
-
-
-Variable Bit Padding
---------------------
-
-A scheme for encoding an arbitrary number of padding bits in a field or bit stream.
-
-#### Features
-
-* Padding can be decoded from the left or right side.
-* Padding can be 0-based (filled with `0` bits) or 1-based (filled with `1` bits).
-
-#### Specification
-
-* [Variable Bit Padding Specification](https://github.com/kstenerud/variable-bit-padding/blob/master/variable-bit-padding-specification.md)
-
-#### Implementation
-
-* TODO
-
-#### Status: Released
-
----------------------------------------------------------------------
-
-
-Variable Length Quantity
-------------------------
-
-Variable Length Quantity (VLQ) encoding is an unsigned integer compression scheme originally designed for the MIDI file format. This specification expands upon it slightly by allowing encoding from the "left" or "right" side of the quantity (the original MIDI version is "right" oriented).
-
-#### Features
-
- * Left or right oriented encoding
- * Supports progressive decoding
-
-#### Specification
-
-* [VLQ Specification](https://github.com/kstenerud/vlq/blob/master/vlq-specification.md)
-
-#### Implementation
-
-* [Go Implementation](https://github.com/kstenerud/go-vlq)
-
-#### Status: Released
-
-#### Alternative To:
-
-* [Protobuf Varint](https://developers.google.com/protocol-buffers/docs/encoding#varints)
+* JSON
+* XML
+* BSON
+* CBOR
+* MessagePack
+* Protobuf
 
 ---------------------------------------------------------------------
 
@@ -255,51 +190,38 @@ Binary data encoding schemes that are safe to be passed through modern processin
 ---------------------------------------------------------------------
 
 
-Concise Binary and Text Encoding
---------------------------------
+Smalltime
+---------
 
-CBE and CTE are general purpose, compact representations of semi-structured hierarchical data, in binary and text formats. They support all common data types, including dates, URIs, and decimal floating point values.
-
-CBE is designed to encode more commonly used types and values in a shorter space.
+Smalltime offers a simple and convenient way to encode date & time values into signed 64-bit integers that are comparable.
 
 #### Features
 
-  * General purpose encoding for a large number of applications
-  * Supports the most common data types
-  * Supports hierarchical data structuring
-  * Minimal complexity
-  * Type compatibility between CBE and CTE
+ * Encodes a complete date & time into a 64-bit signed integer.
+ * Fields (including year) are compatible with ISO-8601.
+ * Maintenance-free (no leap second tables to update).
+ * Easily converts to human readable fields.
+ * Supports hundreds of thousands of years.
+ * Supports time units to the microsecond.
+ * Supports leap years and leap seconds.
+ * Values are in timezone zero by default.
+ * Encoded values are comparable.
 
-#### Features: Concise Binary Encoding (CBE)
+#### Specification
 
-  * Binary format to minimize parsing costs
-  * Little endian byte ordering to allow the most common systems to read directly off the wire
-  * Balanced space and computation efficiency
+* [Smalltime Specification](https://github.com/kstenerud/smalltime/blob/master/smalltime-specification.md)
+* [Nanotime Specification](https://github.com/kstenerud/smalltime/blob/master/nanotime-specification.md)
 
-#### Features: Concise Text Encoding (CTE)
+#### Implementation
 
-  * Human readable format
+* [C Implementation](https://github.com/kstenerud/smalltime/blob/master/reference-implementation)
+* [Go Implementation](https://github.com/kstenerud/go-smalltime)
 
-#### Specifications
-
-* [CBE Specification](https://github.com/kstenerud/concise-binary-encoding/blob/master/cbe-specification.md)
-* [CTE Specification](https://github.com/kstenerud/concise-text-encoding/blob/master/cte-specification.md)
-
-#### Implementations
-
-* [C Implementation](https://github.com/kstenerud/concise-binary-encoding/tree/master/reference-implementation)
-* [Go Implementation](https://github.com/kstenerud/go-cbe)
-
-#### Status: Prerelease
+#### Status: Released
 
 #### Alternative To:
 
-* JSON
-* XML
-* BSON
-* CBOR
-* MessagePack
-* Protobuf
+* [Compact Time Format](#compact-time-format)
 
 ---------------------------------------------------------------------
 
@@ -337,3 +259,81 @@ The only additional components required are:
 * [Go Implementation](https://github.com/kstenerud/go-streamux)
 
 #### Status: Prerelease
+
+---------------------------------------------------------------------
+
+
+Variable Bit Padding
+--------------------
+
+A scheme for encoding an arbitrary number of padding bits in a field or bit stream.
+
+#### Features
+
+* Padding can be decoded from the left or right side.
+* Padding can be 0-based (filled with `0` bits) or 1-based (filled with `1` bits).
+
+#### Specification
+
+* [Variable Bit Padding Specification](https://github.com/kstenerud/variable-bit-padding/blob/master/variable-bit-padding-specification.md)
+
+#### Implementation
+
+* TODO
+
+#### Status: Released
+
+---------------------------------------------------------------------
+
+
+Variable Length Quantity
+------------------------
+
+Variable Length Quantity (VLQ) encoding is an unsigned integer compression scheme originally designed for the MIDI file format. This specification expands upon it slightly by allowing encoding from the "left" or "right" side of the quantity (the original MIDI version is "right" oriented).
+
+#### Features
+
+ * Left or right oriented encoding
+ * Supports progressive decoding
+
+#### Specification
+
+* [VLQ Specification](https://github.com/kstenerud/vlq/blob/master/vlq-specification.md)
+
+#### Implementation
+
+* [Go Implementation](https://github.com/kstenerud/go-vlq)
+
+#### Status: Released
+
+#### Alternative To:
+
+* [Protobuf Varint](https://developers.google.com/protocol-buffers/docs/encoding#varints)
+
+---------------------------------------------------------------------
+
+
+Varpad
+------
+
+Varpad is a padding encoding scheme that allows unambiguous detection of the padding length without requiring an external field. It is similar to the scheme described in [PKCS#7](http://tools.ietf.org/html/rfc5652#section-6.3), but doesn't suffer from its limitations (PKCS#7 padding has a length limit of 255).
+
+#### Features
+
+ * Doesn't require a separate length field (the length is embedded in the padding itself).
+ * Padding length can be unambiguously detected by examining the first or last byte.
+ * No upper limit on padding length.
+
+#### Specification
+
+* [Varpad Specification](https://github.com/kstenerud/varpad/blob/master/varpad-specification.md)
+
+#### Implementation
+
+* [Go Implementation](https://github.com/kstenerud/go-varpad)
+
+#### Status: Released
+
+#### Alternative To:
+
+* [PKCS#7](http://tools.ietf.org/html/rfc5652#section-6.3)
