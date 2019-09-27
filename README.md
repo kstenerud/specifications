@@ -41,7 +41,7 @@ Compact float can store all of the kinds of values that the IEEE754 decimal type
 
 #### Implementation
 
-* [C implementation](https://github.com/kstenerud/compact-float/tree/master/reference-implementation)
+* [C implementation](https://github.com/kstenerud/c-compact-float)
 * [Go implementation](https://github.com/kstenerud/go-compact-float)
 
 #### Status: Released
@@ -76,7 +76,7 @@ An encoding scheme to store dates, times, and timestamps, down to the nanosecond
 
 #### Implementation
 
-* [C Implementation](https://github.com/kstenerud/compact-time/blob/master/reference-implementation)
+* [C Implementation](https://github.com/kstenerud/c-compact-time)
 * [Go implementation](https://github.com/kstenerud/go-compact-time)
 
 #### Status: Released
@@ -216,7 +216,7 @@ Smalltime offers a simple and convenient way to encode date & time values into s
 
 #### Implementation
 
-* [C Implementation](https://github.com/kstenerud/smalltime/blob/master/reference-implementation)
+* [C Implementation](https://github.com/kstenerud/c-smalltime)
 * [Go Implementation](https://github.com/kstenerud/go-smalltime)
 
 #### Status: Released
@@ -304,7 +304,7 @@ Variable Length Quantity (VLQ) encoding is an unsigned integer compression schem
 
 #### Implementation
 
-* [C Implementation](https://github.com/kstenerud/vlq/tree/master/reference-implementation)
+* [C Implementation](https://github.com/kstenerud/c-vlq)
 * [Go Implementation](https://github.com/kstenerud/go-vlq)
 
 #### Status: Released
