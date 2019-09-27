@@ -41,9 +41,10 @@ Compact float can store all of the kinds of values that the ieee754 decimal type
 
 #### Implementation
 
-* TODO
+* [C implementation](https://github.com/kstenerud/compact-float/tree/master/reference-implementation)
+* [Go implementation](https://github.com/kstenerud/go-compact-float)
 
-#### Status: Prerelease
+#### Status: Released
 
 #### Alternative To:
 
@@ -76,8 +77,9 @@ An encoding scheme to store dates, times, and timestamps, down to the nanosecond
 #### Implementation
 
 * [C Implementation](https://github.com/kstenerud/compact-time/blob/master/reference-implementation)
+* [Go implementation](https://github.com/kstenerud/go-compact-time)
 
-#### Status: Prerelease
+#### Status: Released
 
 #### Alternative To:
 
