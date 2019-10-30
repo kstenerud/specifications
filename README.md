@@ -93,25 +93,15 @@ Concise Binary and Text Encoding
 
 CBE and CTE are general purpose, compact representations of semi-structured hierarchical data, in binary and text formats. They support all common data types, including dates, URIs, and decimal floating point values.
 
-CBE is designed to encode more commonly used types and values in a shorter space.
+Concise Encoding is the next step in the evolution of ad-hoc hierarchical data formats, aiming to address the shortfalls of the current generation:
 
-#### Features
-
-  * General purpose encoding for a large number of applications
-  * Supports the most common data types
-  * Supports hierarchical data structuring
-  * Minimal complexity
-  * Type compatibility between CBE and CTE
-
-#### Features: Concise Binary Encoding (CBE)
-
-  * Binary format to minimize parsing costs
-  * Little endian byte ordering to allow the most common systems to read directly off the wire
-  * Balanced space and computation efficiency
-
-#### Features: Concise Text Encoding (CTE)
-
-  * Human readable format
+ * It is split into two formats: [binary-based CBE](https://github.com/kstenerud/concise-binary-encoding) and [text-based CTE](https://github.com/kstenerud/concise-text-encoding), which serve different but parallel purposes.
+ * 1:1 type compatiblility between the binary and text formats. Converting between CBE and CTE is transparent, allowing you to use the much smaller and energy efficient binary format for data interchange and storage, converting to/from text only when and where a human needs to be involved.
+ * Native support for the most commonly used data types. Concise Encoding aims to support 80% of data use cases natively.
+ * Support for metadata and comments.
+ * Completely redesigned from the ground up to balance user readability, encoded size, and codec complexity.
+ * The formats are fully specified, eliminating ambiguities and covering edge cases, thus facilitating compatibility between implementations and reducing complexity.
+ * Documents and specifications are versioned to support future expansion.
 
 #### Specifications
 
@@ -120,8 +110,15 @@ CBE is designed to encode more commonly used types and values in a shorter space
 
 #### Implementations
 
-* [C Implementation](https://github.com/kstenerud/concise-binary-encoding/tree/master/reference-implementation)
+CBE:
+
+* [C Implementation](https://github.com/kstenerud/c-cbe)
 * [Go Implementation](https://github.com/kstenerud/go-cbe)
+
+CTE:
+
+* C Implementation: TODO
+* [Go Implementation](https://github.com/kstenerud/go-cte)
 
 #### Status: Prerelease
 
