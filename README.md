@@ -105,8 +105,8 @@ Concise Encoding is the next step in the evolution of ad-hoc hierarchical data f
 
 #### Specifications
 
-* [CBE Specification](https://github.com/kstenerud/concise-binary-encoding/blob/master/cbe-specification.md)
-* [CTE Specification](https://github.com/kstenerud/concise-text-encoding/blob/master/cte-specification.md)
+* [CBE Specification](https://github.com/kstenerud/concise-encoding/blob/master/cbe-specification.md)
+* [CTE Specification](https://github.com/kstenerud/concise-encoding/blob/master/cte-specification.md)
 
 #### Implementations
 
